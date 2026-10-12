@@ -271,6 +271,31 @@
       "@type": "Question",
       "name": "どんな保存先に対応していますか？",
       "acceptedAnswer": { "@type": "Answer", "text": "アプリ同士(P2P)のほか、SMB / SFTP / FTP・FTPS / WebDAV / S3互換に対応します。" }
+    },
+    {
+      "@type": "Question",
+      "name": "NASを使うには何が必要ですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "NAS側でSMB（Windows共有）またはSFTPを有効にし、アプリにアドレス・ユーザー名・パスワードを登録するだけです。特別なソフトは不要です。" }
+    },
+    {
+      "@type": "Question",
+      "name": "USBメモリだけでも使えますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。USBメモリや外付けドライブを端末に接続し、保存先として選べます。NASやPCがなくても自動バックアップできます。" }
+    },
+    {
+      "@type": "Question",
+      "name": "外出先からも使えますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "基本は同じネットワーク内での利用を想定しています。外出先から自宅の保存先へ直接つなぐ場合は、VPNなどの設定が必要です。" }
+    },
+    {
+      "@type": "Question",
+      "name": "対応しているAndroidのバージョンは？",
+      "acceptedAnswer": { "@type": "Answer", "text": "Android 8.0（API 26）以降に対応しています。" }
+    },
+    {
+      "@type": "Question",
+      "name": "同期とバックアップの違いは？",
+      "acceptedAnswer": { "@type": "Answer", "text": "同期は2つのフォルダを双方向で同じ状態に保ちます。バックアップは端末から保存先への片方向コピーで、元データを守ります。" }
     }
   ]
 }
@@ -356,6 +381,7 @@
         <article class="tile"><div class="step-no">2</div><h3 data-i18n="s2.t">相手を選ぶ</h3><p data-i18n="s2.d">同じWi-Fiの相手（アプリ端末 / SMB / SFTP / WebDAV / S3）を選びます。</p></article>
         <article class="tile"><div class="step-no">3</div><h3 data-i18n="s3.t">共有 / バックアップ</h3><p data-i18n="s3.d">あとは自動。双方向の同期か、片方向のバックアップで動きます。</p></article>
       </div>
+      <p class="center" style="margin-top:var(--space-6)"><a href="guide/nas-smb.html" data-i18n="how.guide">NAS や Windows 共有の詳しい設定手順はこちら</a></p>
     </div>
   </section>
 
@@ -463,6 +489,26 @@
       <details><summary data-i18n="q3.q">削除したファイルは戻せますか？</summary><p data-i18n="q3.a">削除や上書きの前の版は .trash に退避され、7日間は履歴から復元できます。</p></details>
       <details><summary data-i18n="q4.q">クラウドの月額はかかりますか？</summary><p data-i18n="q4.a">かかりません。無料で使え、Pro は一度きりの買い切りです。</p></details>
       <details><summary data-i18n="q5.q">どんな保存先に対応していますか？</summary><p data-i18n="q5.a">アプリ同士(P2P)のほか、SMB / SFTP / FTP・FTPS / WebDAV / S3互換に対応します。</p></details>
+      <details><summary data-i18n="q6.q">NASを使うには何が必要ですか？</summary><p data-i18n="q6.a">NAS側でSMB（Windows共有）またはSFTPを有効にし、アプリにアドレス・ユーザー名・パスワードを登録するだけです。特別なソフトは不要です。</p></details>
+      <details><summary data-i18n="q7.q">USBメモリだけでも使えますか？</summary><p data-i18n="q7.a">はい。USBメモリや外付けドライブを端末に接続し、保存先として選べます。NASやPCがなくても自動バックアップできます。</p></details>
+      <details><summary data-i18n="q8.q">外出先からも使えますか？</summary><p data-i18n="q8.a">基本は同じネットワーク内での利用を想定しています。外出先から自宅の保存先へ直接つなぐ場合は、VPNなどの設定が必要です。</p></details>
+      <details><summary data-i18n="q9.q">対応しているAndroidのバージョンは？</summary><p data-i18n="q9.a">Android 8.0（API 26）以降に対応しています。</p></details>
+      <details><summary data-i18n="q10.q">同期とバックアップの違いは？</summary><p data-i18n="q10.a">同期は2つのフォルダを双方向で同じ状態に保ちます。バックアップは端末から保存先への片方向コピーで、元データを守ります。</p></details>
+    </div>
+  </section>
+
+  <!-- 9. SHARE -->
+  <section id="share" style="padding-block:var(--space-8)">
+    <div class="container center">
+      <p class="eyebrow" data-i18n="share.eyebrow">SHARE</p>
+      <h2 data-i18n="share.title">このアプリをシェア</h2>
+      <div class="chips" style="justify-content:center; margin-block-start:var(--space-5)">
+        <a class="chip" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsharebackup6.github.io%2F" target="_blank" rel="noopener">X</a>
+        <a class="chip" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fsharebackup6.github.io%2F" target="_blank" rel="noopener">LINE</a>
+        <a class="chip" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsharebackup6.github.io%2F" target="_blank" rel="noopener">Facebook</a>
+        <a class="chip" href="https://b.hatena.ne.jp/entry/s/sharebackup6.github.io/" target="_blank" rel="noopener" data-i18n="share.hatena">はてブ</a>
+      </div>
+      <p style="margin-block-start:var(--space-4)"><input readonly aria-label="URL" value="https://sharebackup6.github.io/" onclick="this.select()" style="width:min(100%,340px); padding:10px 16px; border:1px solid var(--border); border-radius:var(--radius-pill); background:var(--surface); font:inherit; color:var(--fg-2); text-align:center" /></p>
     </div>
   </section>
 
@@ -534,6 +580,13 @@ const I18N = {
     "q3.q": "削除したファイルは戻せますか？", "q3.a": "削除や上書きの前の版は .trash に退避され、7日間は履歴から復元できます。",
     "q4.q": "クラウドの月額はかかりますか？", "q4.a": "かかりません。無料で使え、Pro は一度きりの買い切りです。",
     "q5.q": "どんな保存先に対応していますか？", "q5.a": "アプリ同士(P2P)のほか、SMB / SFTP / FTP・FTPS / WebDAV / S3互換に対応します。",
+    "q6.q": "NASを使うには何が必要ですか？", "q6.a": "NAS側でSMB（Windows共有）またはSFTPを有効にし、アプリにアドレス・ユーザー名・パスワードを登録するだけです。特別なソフトは不要です。",
+    "q7.q": "USBメモリだけでも使えますか？", "q7.a": "はい。USBメモリや外付けドライブを端末に接続し、保存先として選べます。NASやPCがなくても自動バックアップできます。",
+    "q8.q": "外出先からも使えますか？", "q8.a": "基本は同じネットワーク内での利用を想定しています。外出先から自宅の保存先へ直接つなぐ場合は、VPNなどの設定が必要です。",
+    "q9.q": "対応しているAndroidのバージョンは？", "q9.a": "Android 8.0（API 26）以降に対応しています。",
+    "q10.q": "同期とバックアップの違いは？", "q10.a": "同期は2つのフォルダを双方向で同じ状態に保ちます。バックアップは端末から保存先への片方向コピーで、元データを守ります。",
+    "how.guide": "NAS や Windows 共有の詳しい設定手順はこちら",
+    "share.eyebrow": "SHARE", "share.title": "このアプリをシェア", "share.hatena": "はてブ",
     "footer.note": "データはお家のネットワークの中で完結します。広告なし・クラウドの月額なし。",
     "footer.privacy": "プライバシーポリシー"
   },
@@ -591,6 +644,13 @@ const I18N = {
     "q3.q": "Can I recover deleted files?", "q3.a": "Versions are moved to .trash before delete or overwrite, and can be restored from history for 7 days.",
     "q4.q": "Is there a monthly cloud fee?", "q4.a": "No. It is free to use, and Pro is a one-time purchase.",
     "q5.q": "Which destinations are supported?", "q5.a": "App-to-app (P2P) plus SMB / SFTP / FTP & FTPS / WebDAV / S3-compatible.",
+    "q6.q": "What do I need to use a NAS?", "q6.a": "Enable SMB (Windows sharing) or SFTP on your NAS, then add its address, username and password in the app. No extra software is needed.",
+    "q7.q": "Can I use just a USB drive?", "q7.a": "Yes. Connect a USB drive or external storage to your device and pick it as the destination. Automatic backup works even without a NAS or PC.",
+    "q8.q": "Can I use it outside my home?", "q8.a": "It is designed for use on the same network. To reach storage at home from outside, you need a VPN or a similar setup.",
+    "q9.q": "Which Android versions are supported?", "q9.a": "Android 8.0 (API 26) and later are supported.",
+    "q10.q": "What is the difference between sync and backup?", "q10.a": "Sync keeps two folders identical in both directions. Backup is a one-way copy from your device to the destination, protecting the original.",
+    "how.guide": "See the detailed setup guide for NAS and Windows shares",
+    "share.eyebrow": "SHARE", "share.title": "Share this app", "share.hatena": "Hatena Bookmark",
     "footer.note": "Your data stays inside your home network. No ads, no monthly cloud fees.",
     "footer.privacy": "Privacy Policy"
   }

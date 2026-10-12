@@ -261,6 +261,31 @@
       "@type": "Question",
       "name": "Which destinations are supported?",
       "acceptedAnswer": { "@type": "Answer", "text": "App-to-app (P2P) plus SMB / SFTP / FTP & FTPS / WebDAV / S3-compatible." }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I need to use a NAS?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Enable SMB (Windows sharing) or SFTP on your NAS, then add its address, username and password in the app. No extra software is needed." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use just a USB drive?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Connect a USB drive or external storage to your device and pick it as the destination. Automatic backup works even without a NAS or PC." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use it outside my home?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It is designed for use on the same network. To reach storage at home from outside, you need a VPN or a similar setup." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Android versions are supported?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Android 8.0 (API 26) and later are supported." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between sync and backup?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sync keeps two folders identical in both directions. Backup is a one-way copy from your device to the destination, protecting the original." }
     }
   ]
 }
@@ -346,6 +371,7 @@
         <article class="tile"><div class="step-no">2</div><h3 data-i18n="s2.t">Pick a destination</h3><p data-i18n="s2.d">Choose a peer on the same Wi-Fi (app-to-app / SMB / SFTP / WebDAV / S3).</p></article>
         <article class="tile"><div class="step-no">3</div><h3 data-i18n="s3.t">Sync or back up</h3><p data-i18n="s3.d">That's it. Run two-way sync or one-way backup.</p></article>
       </div>
+      <p class="center" style="margin-top:var(--space-6)"><a href="guide/nas-smb.html" data-i18n="how.guide">See the detailed setup guide for NAS and Windows shares</a></p>
     </div>
   </section>
 
@@ -453,6 +479,26 @@
       <details><summary data-i18n="q3.q">Can I recover deleted files?</summary><p data-i18n="q3.a">Versions are moved to .trash before delete or overwrite, and can be restored from history for 7 days.</p></details>
       <details><summary data-i18n="q4.q">Is there a monthly cloud fee?</summary><p data-i18n="q4.a">No. It is free to use, and Pro is a one-time purchase.</p></details>
       <details><summary data-i18n="q5.q">Which destinations are supported?</summary><p data-i18n="q5.a">App-to-app (P2P) plus SMB / SFTP / FTP & FTPS / WebDAV / S3-compatible.</p></details>
+      <details><summary data-i18n="q6.q">What do I need to use a NAS?</summary><p data-i18n="q6.a">Enable SMB (Windows sharing) or SFTP on your NAS, then add its address, username and password in the app. No extra software is needed.</p></details>
+      <details><summary data-i18n="q7.q">Can I use just a USB drive?</summary><p data-i18n="q7.a">Yes. Connect a USB drive or external storage to your device and pick it as the destination. Automatic backup works even without a NAS or PC.</p></details>
+      <details><summary data-i18n="q8.q">Can I use it outside my home?</summary><p data-i18n="q8.a">It is designed for use on the same network. To reach storage at home from outside, you need a VPN or a similar setup.</p></details>
+      <details><summary data-i18n="q9.q">Which Android versions are supported?</summary><p data-i18n="q9.a">Android 8.0 (API 26) and later are supported.</p></details>
+      <details><summary data-i18n="q10.q">What is the difference between sync and backup?</summary><p data-i18n="q10.a">Sync keeps two folders identical in both directions. Backup is a one-way copy from your device to the destination, protecting the original.</p></details>
+    </div>
+  </section>
+
+  <!-- 9. SHARE -->
+  <section id="share" style="padding-block:var(--space-8)">
+    <div class="container center">
+      <p class="eyebrow" data-i18n="share.eyebrow">SHARE</p>
+      <h2 data-i18n="share.title">Share this app</h2>
+      <div class="chips" style="justify-content:center; margin-block-start:var(--space-5)">
+        <a class="chip" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsharebackup6.github.io%2Fen%2F" target="_blank" rel="noopener">X</a>
+        <a class="chip" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fsharebackup6.github.io%2Fen%2F" target="_blank" rel="noopener">LINE</a>
+        <a class="chip" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsharebackup6.github.io%2Fen%2F" target="_blank" rel="noopener">Facebook</a>
+        <a class="chip" href="https://b.hatena.ne.jp/entry/s/sharebackup6.github.io/en/" target="_blank" rel="noopener" data-i18n="share.hatena">Hatena Bookmark</a>
+      </div>
+      <p style="margin-block-start:var(--space-4)"><input readonly aria-label="URL" value="https://sharebackup6.github.io/en/" onclick="this.select()" style="width:min(100%,340px); padding:10px 16px; border:1px solid var(--border); border-radius:var(--radius-pill); background:var(--surface); font:inherit; color:var(--fg-2); text-align:center" /></p>
     </div>
   </section>
 

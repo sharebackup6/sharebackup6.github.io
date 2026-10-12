@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NAS・Windows共有に自動バックアップする設定｜ShareOrBackup</title>
+<meta name="description" content="AndroidからNASやWindows共有(SMB)へ自動バックアップする手順を解説。同じWi-Fi内で完結しクラウドは不要。接続先の追加・認証・つまずきポイントもまとめました。" />
+<link rel="canonical" href="https://sharebackup6.github.io/guide/nas-smb.html" />
+<link rel="alternate" hreflang="ja" href="https://sharebackup6.github.io/guide/nas-smb.html" />
+<link rel="alternate" hreflang="en" href="https://sharebackup6.github.io/en/guide/nas-smb.html" />
+<link rel="alternate" hreflang="x-default" href="https://sharebackup6.github.io/guide/nas-smb.html" />
+<meta name="robots" content="index,follow" />
+<meta name="theme-color" content="#1a73e8" />
+<link rel="icon" href="../app-icon.png" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ShareOrBackup" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:title" content="NAS・Windows共有に自動バックアップする設定" />
+<meta property="og:description" content="同じWi-Fi内でNASやWindows共有へ自動バックアップ。クラウド不要。" />
+<meta property="og:url" content="https://sharebackup6.github.io/guide/nas-smb.html" />
+<meta property="og:image" content="https://sharebackup6.github.io/og_image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- analytics:start -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KQYP3XCBWN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KQYP3XCBWN');
+</script>
+<!-- analytics:end -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "NAS・Windows共有に自動バックアップする設定",
+  "description": "AndroidからNASやWindows共有(SMB)へShareOrBackupで自動バックアップする手順。",
+  "inLanguage": "ja",
+  "step": [
+    { "@type": "HowToStep", "name": "NAS/PCで共有を有効にする", "text": "NASまたはWindows PCでSMB(Windows共有)を有効にします。" },
+    { "@type": "HowToStep", "name": "接続先を追加する", "text": "アプリで「機器を追加」→「SMB」を選びます。" },
+    { "@type": "HowToStep", "name": "接続情報を入力する", "text": "アドレス・ポート(通常445)・共有名・ユーザー名・パスワードを入力します。" },
+    { "@type": "HowToStep", "name": "フォルダを選ぶ", "text": "バックアップしたい端末側フォルダと、保存先の共有フォルダを選びます。" },
+    { "@type": "HowToStep", "name": "自動バックアップを有効にする", "text": "Wi-Fi接続時に自動で保存されるよう設定します。" }
+  ]
+}
+</script>
+<style>
+  :root{--bg:#f8fafd;--surface:#fff;--fg:#202124;--fg2:#3c4043;--muted:#5f6368;--border:#dadce0;--accent:#1a73e8;--radius:12px;--pill:9999px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.75}
+  a{color:var(--accent)}
+  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  .wrap{max-width:820px;margin:0 auto;padding:0 20px}
+  .nav{display:flex;align-items:center;gap:12px;min-height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--fg);text-decoration:none}
+  .brand img{width:28px;height:28px;border-radius:7px;border:1px solid var(--border)}
+  .spacer{flex:1}
+  .lang{display:inline-flex;border:1px solid var(--border);border-radius:var(--pill);overflow:hidden}
+  .lang a{padding:6px 12px;font-size:12px;font-weight:700;color:var(--muted);text-decoration:none;background:var(--surface)}
+  .lang a.active{background:var(--accent);color:#fff}
+  main{padding:40px 0 56px}
+  .eyebrow{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px}
+  h1{font-size:28px;line-height:1.3;margin:0 0 12px}
+  h2{font-size:20px;margin:36px 0 12px}
+  .lead{color:var(--fg2);font-size:16px;margin:0 0 8px}
+  ol,ul{padding-left:1.2em}
+  li{margin:.4em 0;color:var(--fg2)}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin:12px 0}
+  .note{background:#e8f0fe;border:1px solid #c6dafc;border-radius:var(--radius);padding:14px 18px;color:var(--fg2);font-size:14px;margin:16px 0}
+  .cta{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:var(--pill);background:var(--accent);color:#fff;font-weight:700;text-decoration:none;margin-top:8px}
+  .cta:focus-visible{outline:none;box-shadow:0 0 0 4px rgba(26,115,232,.24)}
+  footer{border-top:1px solid var(--border);background:var(--surface);color:var(--muted);font-size:14px}
+  footer .wrap{padding:24px 20px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+  code{background:#eef1f5;border-radius:6px;padding:2px 6px;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../"><img src="../app-icon.png" alt="ShareOrBackup" /><span>ShareOrBackup</span></a>
+    <div class="spacer"></div>
+    <div class="lang" role="group" aria-label="Language">
+      <a class="active" href="./" hreflang="ja">日本語</a>
+      <a href="../en/guide/nas-smb.html" hreflang="en">English</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="eyebrow">GUIDE</p>
+  <h1>NAS・Windows共有に自動バックアップする設定</h1>
+  <p class="lead">同じWi-Fi内で、Androidの写真や資料をNASやWindows共有(SMB)へ自動で保存します。クラウドは使いません。</p>
+
+  <h2>準備するもの</h2>
+  <ul>
+    <li>ShareOrBackup を入れた Android 端末（Android 8.0 以上）</li>
+    <li>NAS、または Windows PC（SMB の共有）</li>
+    <li>スマホと保存先が同じ Wi-Fi につながっていること</li>
+  </ul>
+
+  <h2>設定の手順</h2>
+  <ol>
+    <li><b>保存先側で共有を有効にする</b><br>NAS なら SMB(Windows共有) を有効化。Windows PC なら共有フォルダを作成し、ファイル共有を許可します。</li>
+    <li><b>アプリで「機器を追加」→「SMB」を選ぶ</b></li>
+    <li><b>接続情報を入力する</b><br>アドレス(IP またはホスト名)、ポート(<code>445</code> が通常)、共有名、ユーザー名、パスワード。ゲスト共有が無効ならユーザー名/パスワードは必須です。</li>
+    <li><b>フォルダを選ぶ</b><br>バックアップしたい端末側フォルダと、保存先の共有フォルダを選びます。</li>
+    <li><b>自動バックアップを有効にする</b><br>以後、同じ Wi-Fi につながると自動で保存されます。</li>
+  </ol>
+
+  <div class="note">
+    <b>うまくつながらないとき</b>
+    <ul>
+      <li>ゲスト共有は無効なことが多い → ユーザー名/パスワードを設定</li>
+      <li>ポートは通常 <code>445</code>。独自ポートなら手動で追加</li>
+      <li>Windows はファイアウォールで「ファイルとプリンターの共有」を許可</li>
+    </ul>
+  </div>
+
+  <h2>USBメモリに保存する場合</h2>
+  <p>NAS や PC がなくても、USBメモリや外付けドライブを端末に接続し、保存先として選べます。</p>
+
+  <h2>SFTP で接続する場合</h2>
+  <p>NAS やサーバで SSH(SFTP) が使える場合は、同じ手順で「SFTP」を選びます。通信は暗号化されます。</p>
+
+  <p style="margin-top:32px"><a class="cta" href="https://play.google.com/store/apps/details?id=com.sharebackup&amp;utm_source=site&amp;utm_medium=guide&amp;utm_campaign=nas-smb">Google Play で入手</a></p>
+  <p style="font-size:14px;color:var(--muted)"><a href="../">← トップページへ戻る</a></p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>データはお家のネットワークの中で完結します。広告なし・クラウドの月額なし。</span>
+    <span><a href="../privacy.html">プライバシーポリシー</a> ・ © ShareOrBackup</span>
+  </div>
+</footer>
+</body>
+</html>

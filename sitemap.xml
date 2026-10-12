@@ -25,4 +25,22 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://sharebackup6.github.io/guide/nas-smb.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sharebackup6.github.io/guide/nas-smb.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sharebackup6.github.io/en/guide/nas-smb.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sharebackup6.github.io/guide/nas-smb.html"/>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharebackup6.github.io/en/guide/nas-smb.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sharebackup6.github.io/guide/nas-smb.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sharebackup6.github.io/en/guide/nas-smb.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sharebackup6.github.io/guide/nas-smb.html"/>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
