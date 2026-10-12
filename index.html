@@ -5,7 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ShareOrBackup｜お家のWi-Fiでファイル共有・自動バックアップ</title>
 <meta name="description" content="お家のWi-Fiでスマホ・PC・NAS・USBメモリをつないでファイル共有と自動バックアップ。クラウド不要・広告なし。 / Share and back up files over your home Wi-Fi. No cloud required." />
+<link rel="canonical" href="https://sharebackup6.github.io/" />
+<meta name="theme-color" content="#1a73e8" />
+<link rel="icon" href="app-icon.png" />
+<link rel="apple-touch-icon" href="app-icon.png" />
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="ShareOrBackup" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:locale:alternate" content="en_US" />
 <meta property="og:title" content="ShareOrBackup — お家のWi-Fiで共有・バックアップ" />
 <meta property="og:description" content="クラウド不要。写真も資料も家族の場所に自動で保存。" />
 <meta property="og:url" content="https://sharebackup6.github.io/" />
@@ -13,8 +20,12 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<link rel="alternate" hreflang="ja" href="https://sharebackup6.github.io/?lang=ja" />
+<meta name="twitter:title" content="ShareOrBackup — お家のWi-Fiで共有・バックアップ" />
+<meta name="twitter:description" content="クラウド不要。写真も資料も家族の場所に自動で保存。" />
+<meta name="twitter:image" content="https://sharebackup6.github.io/og_image.png" />
+<link rel="alternate" hreflang="ja" href="https://sharebackup6.github.io/" />
 <link rel="alternate" hreflang="en" href="https://sharebackup6.github.io/?lang=en" />
+<link rel="alternate" hreflang="x-default" href="https://sharebackup6.github.io/" />
 <style>
   /* ─── Open Design / material tokens (verbatim) ───────────────────────── */
   :root {
@@ -89,7 +100,7 @@
   }
   h1, h2, h3, p { margin: 0; }
   h1, h2, h3 { font-family: var(--font-display); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); }
-  img { display: block; max-width: 100%; }
+  img { display: block; max-width: 100%; height: auto; }
   a { color: var(--accent); }
   .accent { color: var(--accent); }
 
@@ -192,6 +203,67 @@
   footer { border-top: 1px solid var(--border); background: var(--surface); }
   footer .container { padding-block: var(--space-8); color: var(--muted); font-size: var(--text-sm); display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: space-between; align-items: center; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ShareOrBackup",
+  "operatingSystem": "Android",
+  "applicationCategory": "UtilitiesApplication",
+  "description": "お家のWi-Fiでスマホ・PC・NAS・USBメモリをつないでファイル共有と自動バックアップ。クラウド不要・広告なし。SMB / SFTP / FTP・FTPS / WebDAV / S3互換に対応。",
+  "url": "https://sharebackup6.github.io/",
+  "image": "https://sharebackup6.github.io/og_image.png",
+  "inLanguage": "ja",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "無料",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro（買い切り）",
+      "price": "980",
+      "priceCurrency": "JPY"
+    }
+  ],
+  "installUrl": "https://play.google.com/store/apps/details?id=com.sharebackup"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "データはクラウドに送られますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "いいえ。やりとりは家庭内ネットワークの中で完結し、外部クラウドには送りません。" }
+    },
+    {
+      "@type": "Question",
+      "name": "アプリが止まっても同期は続きますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。画面を閉じてもバックグラウンドで動作し、止まっても Wi-Fi 復帰や定期復帰で自動的に再開します。" }
+    },
+    {
+      "@type": "Question",
+      "name": "削除したファイルは戻せますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "削除や上書きの前の版は .trash に退避され、7日間は履歴から復元できます。" }
+    },
+    {
+      "@type": "Question",
+      "name": "クラウドの月額はかかりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "かかりません。無料で使え、Pro は一度きりの買い切りです。" }
+    },
+    {
+      "@type": "Question",
+      "name": "どんな保存先に対応していますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "アプリ同士(P2P)のほか、SMB / SFTP / FTP・FTPS / WebDAV / S3互換に対応します。" }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -233,8 +305,8 @@
       </div>
       <div class="hero-visual">
         <div class="hero-blob" aria-hidden="true"></div>
-        <img class="shot shot-b" src="screenshots/03_explore_grid.png" alt="" />
-        <img class="shot shot-a" src="screenshots/01_home.png" alt="ShareOrBackup メイン画面" />
+        <img class="shot shot-b" src="screenshots/03_explore_grid.png" width="1408" height="2900" alt="サムネイル表示でフォルダ内の写真を確認する画面" loading="lazy" decoding="async" />
+        <img class="shot shot-a" src="screenshots/01_home.png" width="1408" height="2900" alt="ShareOrBackup メイン画面: 端末と保存先の一覧" fetchpriority="high" decoding="async" />
       </div>
     </div>
   </section>
@@ -323,12 +395,12 @@
         <p class="lead" data-i18n="shots.lead">端末と保存先を一覧で管理。状態がひと目でわかります。</p>
       </div>
       <div class="gallery">
-        <figure><img src="screenshots/01_home.png" alt="メイン画面" /><figcaption data-i18n="g1">メイン</figcaption></figure>
-        <figure><img src="screenshots/02_devices.png" alt="機器一覧" /><figcaption data-i18n="g2">機器</figcaption></figure>
-        <figure><img src="screenshots/03_explore_grid.png" alt="サムネイル表示" /><figcaption data-i18n="g3">サムネイル</figcaption></figure>
-        <figure><img src="screenshots/04_explore_list.png" alt="一覧表示" /><figcaption data-i18n="g4">一覧</figcaption></figure>
-        <figure><img src="screenshots/05_onboarding.png" alt="はじめに" /><figcaption data-i18n="g5">はじめに</figcaption></figure>
-        <figure><img src="screenshots/06_settings.png" alt="設定" /><figcaption data-i18n="g6">設定</figcaption></figure>
+        <figure><img src="screenshots/01_home.png" width="1408" height="2900" alt="メイン画面: 同期リンクの一覧" loading="lazy" decoding="async" /><figcaption data-i18n="g1">メイン</figcaption></figure>
+        <figure><img src="screenshots/02_devices.png" width="1408" height="2900" alt="機器一覧: 接続できる端末の表示" loading="lazy" decoding="async" /><figcaption data-i18n="g2">機器</figcaption></figure>
+        <figure><img src="screenshots/03_explore_grid.png" width="1408" height="2900" alt="サムネイル表示: フォルダ内の写真グリッド" loading="lazy" decoding="async" /><figcaption data-i18n="g3">サムネイル</figcaption></figure>
+        <figure><img src="screenshots/04_explore_list.png" width="1408" height="2900" alt="一覧表示: ファイルとサイズのリスト" loading="lazy" decoding="async" /><figcaption data-i18n="g4">一覧</figcaption></figure>
+        <figure><img src="screenshots/05_onboarding.png" width="1408" height="2900" alt="はじめに: 初期設定の案内" loading="lazy" decoding="async" /><figcaption data-i18n="g5">はじめに</figcaption></figure>
+        <figure><img src="screenshots/06_settings.png" width="1408" height="2900" alt="設定: 同期とバックアップの項目" loading="lazy" decoding="async" /><figcaption data-i18n="g6">設定</figcaption></figure>
       </div>
     </div>
   </section>
