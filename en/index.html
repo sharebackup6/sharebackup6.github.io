@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ShareOrBackup｜Home Wi-Fi file sharing &amp; backup</title>
+<meta name="description" content="Share and back up files between your phone, PC, NAS and USB drive over your home Wi-Fi. No cloud required, no ads. Supports SMB / SFTP / FTP &amp; FTPS / WebDAV / S3-compatible." />
+<link rel="canonical" href="https://sharebackup6.github.io/en/" />
+<meta name="theme-color" content="#1a73e8" />
+<link rel="icon" href="../app-icon.png" />
+<link rel="apple-touch-icon" href="../app-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ShareOrBackup" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:title" content="ShareOrBackup — Home Wi-Fi sharing &amp; backup" />
+<meta property="og:description" content="No cloud. Your photos and documents are saved automatically to your own storage." />
+<meta property="og:url" content="https://sharebackup6.github.io/en/" />
+<meta property="og:image" content="https://sharebackup6.github.io/og_image_en.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ShareOrBackup — Home Wi-Fi sharing &amp; backup" />
+<meta name="twitter:description" content="No cloud. Your photos and documents are saved automatically to your own storage." />
+<meta name="twitter:image" content="https://sharebackup6.github.io/og_image_en.png" />
+<link rel="alternate" hreflang="ja" href="https://sharebackup6.github.io/" />
+<link rel="alternate" hreflang="en" href="https://sharebackup6.github.io/en/" />
+<link rel="alternate" hreflang="x-default" href="https://sharebackup6.github.io/" />
+<style>
+  /* ─── Open Design / material tokens (verbatim) ───────────────────────── */
+  :root {
+    --bg: #f8fafd;
+    --surface: #ffffff;
+    --surface-warm: #e8f0fe;
+    --fg: #202124;
+    --fg-2: #3c4043;
+    --muted: #5f6368;
+    --meta: #1a73e8;
+    --border: #dadce0;
+    --border-soft: #edf0f2;
+    --accent: #1a73e8;
+    --accent-on: #ffffff;
+    --accent-hover: color-mix(in oklab, var(--accent), black 8%);
+    --accent-active: color-mix(in oklab, var(--accent), black 14%);
+    --success: #188038;
+    --warn: #f9ab00;
+    --danger: #d93025;
+    --font-display: "Google Sans", Roboto, Arial, sans-serif;
+    --font-body: Roboto, Arial, sans-serif;
+    --font-mono: "Roboto Mono", ui-monospace, Menlo, monospace;
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-base: 16px;
+    --text-lg: 18px;
+    --text-xl: 24px;
+    --text-2xl: 32px;
+    --text-3xl: 48px;
+    --text-4xl: 64px;
+    --leading-body: 1.5;
+    --leading-tight: 1.12;
+    --tracking-display: 0;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-12: 48px;
+    --section-y-desktop: 96px;
+    --section-y-tablet: 68px;
+    --section-y-phone: 48px;
+    --radius-sm: 4px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+    --radius-pill: 9999px;
+    --elev-flat: none;
+    --elev-ring: 0 0 0 1px var(--border);
+    --elev-raised: 0 3px 8px rgba(60, 64, 67, 0.18);
+    --focus-ring: 0 0 0 4px rgba(26, 115, 232, 0.24);
+    --motion-fast: 150ms;
+    --motion-base: 250ms;
+    --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --container-max: 1200px;
+    --container-gutter-desktop: 36px;
+    --container-gutter-tablet: 24px;
+    --container-gutter-phone: 16px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, p { margin: 0; }
+  h1, h2, h3 { font-family: var(--font-display); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--accent); }
+  .accent { color: var(--accent); }
+
+  .container { max-width: var(--container-max); margin-inline: auto; padding-inline: var(--container-gutter-desktop); }
+  section { padding-block: var(--section-y-desktop); }
+  @media (max-width: 1023px) { .container { padding-inline: var(--container-gutter-tablet); } section { padding-block: var(--section-y-tablet); } }
+  @media (max-width: 639px) { .container { padding-inline: var(--container-gutter-phone); } section { padding-block: var(--section-y-phone); } }
+
+  /* ─── header ─────────────────────────────────────────────────────────── */
+  header {
+    position: sticky; top: 0; z-index: 30;
+    background: color-mix(in oklab, var(--surface), transparent 6%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav { display: flex; align-items: center; gap: var(--space-4); min-height: 64px; }
+  .brand { display: flex; align-items: center; gap: var(--space-3); font: 700 var(--text-lg) / 1 var(--font-display); color: var(--fg); text-decoration: none; }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; box-shadow: var(--elev-ring); }
+  .nav-links { display: flex; gap: var(--space-5); margin-inline-start: var(--space-6); }
+  .nav-links a { color: var(--fg-2); text-decoration: none; font-size: var(--text-sm); font-weight: 500; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-spacer { flex: 1; }
+  .lang { display: inline-flex; border: 1px solid var(--border); border-radius: var(--radius-pill); overflow: hidden; }
+  .lang a { display: inline-flex; align-items: center; background: var(--surface); color: var(--muted); font: 700 var(--text-xs) / 1 var(--font-body); padding: 8px 12px; text-decoration: none; }
+  .lang a.active { background: var(--accent); color: var(--accent-on); }
+  @media (max-width: 860px) { .nav-links { display: none; } }
+
+  /* ─── buttons ────────────────────────────────────────────────────────── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 var(--space-5);
+    border: 1px solid transparent; border-radius: var(--radius-pill); font: 700 var(--text-sm) / 1 var(--font-body);
+    color: inherit; text-decoration: none; cursor: pointer;
+    transition: background-color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard);
+  }
+  .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+  .btn-primary { background: var(--accent); color: var(--accent-on); }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+  .btn-secondary { background: var(--surface); color: var(--fg); border-color: var(--border); box-shadow: var(--elev-ring); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-sm { min-height: 38px; padding: 0 var(--space-4); }
+
+  /* ─── shared bits ────────────────────────────────────────────────────── */
+  .eyebrow { color: var(--meta); font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .lead { max-width: 640px; color: var(--fg-2); font-size: var(--text-lg); }
+  .stack > * + * { margin-block-start: var(--space-4); }
+  .actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-block-start: var(--space-6); }
+  .center { text-align: center; }
+  .center .lead { margin-inline: auto; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+  .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+  @media (max-width: 860px) { .grid3, .grid2 { grid-template-columns: 1fr; } }
+
+  .tile { padding: var(--space-5); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); }
+  .tile h3 { font-size: var(--text-lg); }
+  .tile p { color: var(--muted); font-size: var(--text-sm); margin-block-start: var(--space-3); }
+  .tile .ico { width: 40px; height: 40px; border-radius: var(--radius-md); display: grid; place-items: center; background: var(--surface-warm); color: var(--accent); margin-bottom: var(--space-4); }
+  .tile .ico svg { width: 22px; height: 22px; }
+  .step-no { font: 700 var(--text-sm) / 1 var(--font-mono); color: var(--accent-on); background: var(--accent); width: 28px; height: 28px; border-radius: var(--radius-pill); display: grid; place-items: center; margin-bottom: var(--space-4); }
+
+  .chip { display: inline-flex; align-items: center; gap: var(--space-2); padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius-pill); background: var(--surface); color: var(--fg-2); font-size: var(--text-sm); font-weight: 500; }
+  .chip .dot { width: 8px; height: 8px; border-radius: var(--radius-pill); background: var(--accent); }
+  .chips { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+
+  /* ─── hero ───────────────────────────────────────────────────────────── */
+  .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr); gap: var(--space-8); align-items: center; }
+  .hero-visual { position: relative; display: flex; justify-content: center; align-items: flex-end; min-height: 420px; }
+  .hero-visual .shot { filter: drop-shadow(0 18px 34px rgba(60, 64, 67, 0.22)); }
+  .hero-visual .shot-a { width: 260px; z-index: 2; }
+  .hero-visual .shot-b { width: 200px; margin-left: -70px; margin-bottom: 34px; z-index: 1; }
+  .hero-blob { position: absolute; inset: 8% 6%; background: radial-gradient(circle at 70% 30%, rgba(26,115,232,0.18), transparent 62%); border-radius: var(--radius-lg); z-index: 0; }
+  @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } .hero-visual { min-height: 0; margin-top: var(--space-6); } }
+
+  /* ─── gallery ────────────────────────────────────────────────────────── */
+  .gallery { display: flex; gap: var(--space-5); overflow-x: auto; padding-block: var(--space-2) var(--space-6); scroll-snap-type: x mandatory; }
+  .gallery figure { flex: 0 0 auto; margin: 0; text-align: center; scroll-snap-align: center; }
+  .gallery img { width: 200px; filter: drop-shadow(0 14px 24px rgba(60, 64, 67, 0.18)); }
+  .gallery figcaption { margin-top: var(--space-3); color: var(--muted); font-size: var(--text-xs); }
+
+  /* ─── price ──────────────────────────────────────────────────────────── */
+  .plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); max-width: 860px; margin-inline: auto; }
+  @media (max-width: 640px) { .plans { grid-template-columns: 1fr; } }
+  .plan { padding: var(--space-6); border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--elev-raised); }
+  .plan.pro { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--elev-raised); }
+  .plan h3 { font-size: var(--text-xl); }
+  .plan .price { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; margin-block: var(--space-3); }
+  .plan ul { list-style: none; padding: 0; margin: var(--space-4) 0 0; }
+  .plan li { display: flex; gap: var(--space-2); align-items: flex-start; color: var(--fg-2); font-size: var(--text-sm); padding-block: var(--space-2); }
+  .plan li::before { content: "✓"; color: var(--success); font-weight: 700; }
+  .plan .tag { display: inline-block; margin-bottom: var(--space-3); padding: 4px 10px; border-radius: var(--radius-pill); background: var(--surface-warm); color: var(--accent); font: 700 var(--text-xs) / 1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ─── faq ────────────────────────────────────────────────────────────── */
+  .faq { max-width: 860px; margin-inline: auto; }
+  details { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); padding: var(--space-5); }
+  details + details { margin-top: var(--space-3); }
+  summary { cursor: pointer; font-weight: 700; font-family: var(--font-display); }
+  summary::marker { color: var(--accent); }
+  details p { margin-top: var(--space-3); color: var(--muted); font-size: var(--text-sm); }
+
+  /* ─── footer ─────────────────────────────────────────────────────────── */
+  footer { border-top: 1px solid var(--border); background: var(--surface); }
+  footer .container { padding-block: var(--space-8); color: var(--muted); font-size: var(--text-sm); display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: space-between; align-items: center; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ShareOrBackup",
+  "operatingSystem": "Android",
+  "applicationCategory": "UtilitiesApplication",
+  "description": "Share and back up files between your phone, PC, NAS and USB drive over your home Wi-Fi. No cloud required, no ads. Supports SMB / SFTP / FTP & FTPS / WebDAV / S3-compatible.",
+  "url": "https://sharebackup6.github.io/en/",
+  "image": "https://sharebackup6.github.io/og_image_en.png",
+  "inLanguage": "en",
+  "offers": [
+    { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "JPY" },
+    { "@type": "Offer", "name": "Pro (one-time)", "price": "980", "priceCurrency": "JPY" }
+  ],
+  "installUrl": "https://play.google.com/store/apps/details?id=com.sharebackup"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is my data sent to the cloud?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Transfers stay inside your home network and are never sent to an external cloud." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does sync continue if the app stops?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. It runs in the background with the screen off and resumes automatically after a Wi-Fi reconnect or a scheduled revival." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I recover deleted files?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Versions are moved to .trash before delete or overwrite, and can be restored from history for 7 days." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a monthly cloud fee?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It is free to use, and Pro is a one-time purchase." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which destinations are supported?",
+      "acceptedAnswer": { "@type": "Answer", "text": "App-to-app (P2P) plus SMB / SFTP / FTP & FTPS / WebDAV / S3-compatible." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#top">
+      <img src="../app-icon.png" alt="ShareOrBackup" />
+      <span>ShareOrBackup</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="#how" data-i18n="nav.how">How it works</a>
+      <a href="#shots" data-i18n="nav.shots">Screens</a>
+      <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </nav>
+    <div class="nav-spacer"></div>
+    <div class="lang" role="group" aria-label="Language">
+      <a id="lang-ja" href="/" hreflang="ja">日本語</a>
+      <a id="lang-en" class="active" href="/en/" hreflang="en">English</a>
+    </div>
+    <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/details?id=com.sharebackup" data-i18n="hero.cta">Get it on Google Play</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1. HERO -->
+  <section>
+    <div class="container hero">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Home Wi-Fi sharing & backup</p>
+        <h1 data-i18n-html="hero.title">Share & back up<br>over home Wi-Fi.<br><span class="accent">No cloud needed.</span></h1>
+        <p class="lead" data-i18n="hero.sub">Exchange files directly with family phones, PCs and NAS over your home Wi-Fi. No cloud, no fees, with automatic backup of your photos and documents.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.sharebackup" data-i18n="hero.cta">Get it on Google Play</a>
+          <a class="btn btn-secondary" href="#features" data-i18n="hero.more">See features</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-blob" aria-hidden="true"></div>
+        <img class="shot shot-b" src="../screenshots_en/03_explore_grid.png" width="1408" height="2900" alt="Thumbnail view: checking photos inside a folder" loading="lazy" decoding="async" />
+        <img class="shot shot-a" src="../screenshots_en/01_home.png" width="1408" height="2900" alt="ShareOrBackup main screen: list of devices and destinations" fetchpriority="high" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. VALUE PROPS -->
+  <section id="value" style="padding-top:0">
+    <div class="container grid3">
+      <article class="tile">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17h16M7 17V9a5 5 0 0 1 10 0v8"/></svg></div>
+        <h3 data-i18n="v1.t">No cloud required</h3>
+        <p data-i18n="v1.d">Photos and documents never leave home. No monthly fee, stored where only your family can reach them.</p>
+      </article>
+      <article class="tile">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg></div>
+        <h3 data-i18n="v2.t">Automatic backup when you are home</h3>
+        <p data-i18n="v2.d">Once you are home and on Wi-Fi, your photos and documents are saved to your USB drive or NAS.</p>
+      </article>
+      <article class="tile">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8a12 12 0 0 1 16 0M7 11a8 8 0 0 1 10 0M10 14a4 4 0 0 1 4 0"/><circle cx="12" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+        <h3 data-i18n="v3.t">Share directly over home Wi-Fi</h3>
+        <p data-i18n="v3.d">Exchange files directly with family phones and PCs on the same Wi-Fi. No upload fees.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3. HOW IT WORKS -->
+  <section id="how" style="background:var(--surface); border-block:1px solid var(--border)">
+    <div class="container">
+      <div class="center stack" style="margin-bottom:var(--space-8)">
+        <p class="eyebrow" data-i18n="how.eyebrow">HOW IT WORKS</p>
+        <h2 data-i18n="how.title">Connected in three steps</h2>
+        <p class="lead" data-i18n="how.lead">No complicated setup.</p>
+      </div>
+      <div class="grid3">
+        <article class="tile"><div class="step-no">1</div><h3 data-i18n="s1.t">Pick a folder</h3><p data-i18n="s1.d">Choose the folder on this device to share or back up.</p></article>
+        <article class="tile"><div class="step-no">2</div><h3 data-i18n="s2.t">Pick a destination</h3><p data-i18n="s2.d">Choose a peer on the same Wi-Fi (app-to-app / SMB / SFTP / WebDAV / S3).</p></article>
+        <article class="tile"><div class="step-no">3</div><h3 data-i18n="s3.t">Sync or back up</h3><p data-i18n="s3.d">That's it. Run two-way sync or one-way backup.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FEATURES -->
+  <section id="features">
+    <div class="container">
+      <div class="center stack" style="margin-bottom:var(--space-8)">
+        <p class="eyebrow" data-i18n="feat.eyebrow">FEATURES</p>
+        <h2 data-i18n="feat.title">Key features</h2>
+        <p class="lead" data-i18n="feat.lead">Everything stays on your home network. No cloud required.</p>
+      </div>
+      <div class="grid3">
+        <article class="tile"><h3 data-i18n="f1.t">Folder sync (two-way)</h3><p data-i18n="f1.d">Keep two folders identical in both directions.</p></article>
+        <article class="tile"><h3 data-i18n="f2.t">Automatic backup</h3><p data-i18n="f2.d">When you are on Wi-Fi, your device saves to the destination automatically.</p></article>
+        <article class="tile"><h3 data-i18n="f3.t">Delete guard</h3><p data-i18n="f3.d">Mass deletions are detected and confirmed. Deleted files are recoverable from .trash for 7 days.</p></article>
+        <article class="tile"><h3 data-i18n="f4.t">Background operation</h3><p data-i18n="f4.d">Sync continues with the screen off and recovers by itself.</p></article>
+        <article class="tile"><h3 data-i18n="f5.t">File browsing & thumbnails</h3><p data-i18n="f5.d">Browse both sides in place, copy files, and restore from history.</p></article>
+        <article class="tile"><h3 data-i18n="f6.t">Many destinations</h3><p data-i18n="f6.d">App-to-app (P2P) plus SMB / SFTP / FTP & FTPS / WebDAV / S3-compatible.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PROTOCOLS -->
+  <section id="protocols" style="background:var(--surface); border-block:1px solid var(--border)">
+    <div class="container">
+      <div class="center stack" style="margin-bottom:var(--space-6)">
+        <p class="eyebrow" data-i18n="proto.eyebrow">PROTOCOLS</p>
+        <h2 data-i18n="proto.title">Where it can connect</h2>
+      </div>
+      <div class="chips" style="justify-content:center">
+        <span class="chip"><span class="dot"></span><span data-i18n="chip.p2p">App-to-app (P2P)</span></span>
+        <span class="chip"><span class="dot"></span>SMB</span>
+        <span class="chip"><span class="dot"></span>SFTP</span>
+        <span class="chip"><span class="dot"></span>FTP / FTPS</span>
+        <span class="chip"><span class="dot"></span>WebDAV</span>
+        <span class="chip"><span class="dot"></span><span data-i18n="chip.s3">S3-compatible</span></span>
+      </div>
+      <p class="lead center" style="margin:var(--space-6) auto 0" data-i18n="proto.note">Windows shares, NAS, Linux servers and cloud storage — your usual destinations, as they are.</p>
+    </div>
+  </section>
+
+  <!-- 6. GALLERY -->
+  <section id="shots">
+    <div class="container">
+      <div class="center stack" style="margin-bottom:var(--space-6)">
+        <p class="eyebrow" data-i18n="shots.eyebrow">SCREENS</p>
+        <h2 data-i18n="shots.title">Screens</h2>
+        <p class="lead" data-i18n="shots.lead">Manage devices and destinations in one list, with clear status at a glance.</p>
+      </div>
+      <div class="gallery">
+        <figure><img src="../screenshots_en/01_home.png" width="1408" height="2900" alt="Main screen: list of sync links" loading="lazy" decoding="async" /><figcaption data-i18n="g1">Main</figcaption></figure>
+        <figure><img src="../screenshots_en/02_devices.png" width="1408" height="2900" alt="Devices: peers available on the network" loading="lazy" decoding="async" /><figcaption data-i18n="g2">Devices</figcaption></figure>
+        <figure><img src="../screenshots_en/03_explore_grid.png" width="1408" height="2900" alt="Thumbnail view: photo grid inside a folder" loading="lazy" decoding="async" /><figcaption data-i18n="g3">Thumbnails</figcaption></figure>
+        <figure><img src="../screenshots_en/04_explore_list.png" width="1408" height="2900" alt="List view: files and their sizes" loading="lazy" decoding="async" /><figcaption data-i18n="g4">List</figcaption></figure>
+        <figure><img src="../screenshots_en/05_onboarding.png" width="1408" height="2900" alt="Getting started: initial setup guidance" loading="lazy" decoding="async" /><figcaption data-i18n="g5">Intro</figcaption></figure>
+        <figure><img src="../screenshots_en/06_settings.png" width="1408" height="2900" alt="Settings: sync and backup options" loading="lazy" decoding="async" /><figcaption data-i18n="g6">Settings</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. PRICING -->
+  <section id="pricing" style="background:var(--surface); border-block:1px solid var(--border)">
+    <div class="container">
+      <div class="center stack" style="margin-bottom:var(--space-8)">
+        <p class="eyebrow" data-i18n="price.eyebrow">PRICING</p>
+        <h2 data-i18n="price.title">Start free, upgrade to Pro if you need</h2>
+        <p class="lead" data-i18n="price.lead">Pro is a one-time purchase. There is no monthly cloud fee.</p>
+      </div>
+      <div class="plans">
+        <article class="plan">
+          <h3 data-i18n="free.title">Free</h3>
+          <div class="price" data-i18n="free.price">$0</div>
+          <ul>
+            <li data-i18n="free.l1">Up to 2 links</li>
+            <li data-i18n="free.l2">App-to-app (P2P) and SMB</li>
+            <li data-i18n="free.l3">No ads</li>
+          </ul>
+        </article>
+        <article class="plan pro">
+          <span class="tag">PRO</span>
+          <h3 data-i18n="pro.title">Pro (one-time)</h3>
+          <div class="price" data-i18n="pro.price">¥980</div>
+          <ul>
+            <li data-i18n="pro.l1">Unlimited links</li>
+            <li data-i18n="pro.l2">All protocols (SFTP / FTP / FTPS / S3 / WebDAV)</li>
+            <li data-i18n="pro.l3">Future updates included</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ -->
+  <section id="faq">
+    <div class="container faq">
+      <div class="center stack" style="margin-bottom:var(--space-8)">
+        <p class="eyebrow" data-i18n="faq.eyebrow">FAQ</p>
+        <h2 data-i18n="faq.title">Frequently asked questions</h2>
+      </div>
+      <details><summary data-i18n="q1.q">Is my data sent to the cloud?</summary><p data-i18n="q1.a">No. Transfers stay inside your home network and are never sent to an external cloud.</p></details>
+      <details><summary data-i18n="q2.q">Does sync continue if the app stops?</summary><p data-i18n="q2.a">Yes. It runs in the background with the screen off and resumes automatically after a Wi-Fi reconnect or a scheduled revival.</p></details>
+      <details><summary data-i18n="q3.q">Can I recover deleted files?</summary><p data-i18n="q3.a">Versions are moved to .trash before delete or overwrite, and can be restored from history for 7 days.</p></details>
+      <details><summary data-i18n="q4.q">Is there a monthly cloud fee?</summary><p data-i18n="q4.a">No. It is free to use, and Pro is a one-time purchase.</p></details>
+      <details><summary data-i18n="q5.q">Which destinations are supported?</summary><p data-i18n="q5.a">App-to-app (P2P) plus SMB / SFTP / FTP & FTPS / WebDAV / S3-compatible.</p></details>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <span data-i18n="footer.note">Your data stays inside your home network. No ads, no monthly cloud fees.</span>
+    <span style="display:flex; gap:var(--space-4); align-items:center">
+      <a href="../privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+      <span>© ShareOrBackup</span>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>

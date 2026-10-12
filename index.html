@@ -24,7 +24,7 @@
 <meta name="twitter:description" content="クラウド不要。写真も資料も家族の場所に自動で保存。" />
 <meta name="twitter:image" content="https://sharebackup6.github.io/og_image.png" />
 <link rel="alternate" hreflang="ja" href="https://sharebackup6.github.io/" />
-<link rel="alternate" hreflang="en" href="https://sharebackup6.github.io/?lang=en" />
+<link rel="alternate" hreflang="en" href="https://sharebackup6.github.io/en/" />
 <link rel="alternate" hreflang="x-default" href="https://sharebackup6.github.io/" />
 <style>
   /* ─── Open Design / material tokens (verbatim) ───────────────────────── */
@@ -124,8 +124,8 @@
   .nav-links a:hover { color: var(--accent); }
   .nav-spacer { flex: 1; }
   .lang { display: inline-flex; border: 1px solid var(--border); border-radius: var(--radius-pill); overflow: hidden; }
-  .lang button { border: 0; background: var(--surface); color: var(--muted); font: 700 var(--text-xs) / 1 var(--font-body); padding: 8px 12px; cursor: pointer; }
-  .lang button.active { background: var(--accent); color: var(--accent-on); }
+  .lang a { display: inline-flex; align-items: center; background: var(--surface); color: var(--muted); font: 700 var(--text-xs) / 1 var(--font-body); padding: 8px 12px; text-decoration: none; }
+  .lang a.active { background: var(--accent); color: var(--accent-on); }
   @media (max-width: 860px) { .nav-links { display: none; } }
 
   /* ─── buttons ────────────────────────────────────────────────────────── */
@@ -282,8 +282,8 @@
     </nav>
     <div class="nav-spacer"></div>
     <div class="lang" role="group" aria-label="Language">
-      <button id="lang-ja" type="button" onclick="setLang('ja')">日本語</button>
-      <button id="lang-en" type="button" onclick="setLang('en')">English</button>
+      <a id="lang-ja" class="active" href="/" hreflang="ja">日本語</a>
+      <a id="lang-en" href="/en/" hreflang="en">English</a>
     </div>
     <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/details?id=com.sharebackup" data-i18n="hero.cta">Google Play で入手</a>
   </div>
@@ -582,43 +582,10 @@ const I18N = {
   }
 };
 
-function applyShots(loc) {
-  document.querySelectorAll("img").forEach(img => {
-    const s = img.getAttribute("src") || "";
-    if (s.indexOf("screenshots") === -1) return;
-    if (!img.dataset.ja) img.dataset.ja = s.replace("screenshots_en/", "screenshots/");
-    const ja = img.dataset.ja;
-    img.src = (loc === "en") ? ja.replace("screenshots/", "screenshots_en/") : ja;
-  });
-}
-function applyLang(loc) {
-  const t = I18N[loc] || I18N.ja;
-  applyShots(loc);
-  document.documentElement.lang = loc;
-  document.title = loc === "ja"
-    ? "ShareOrBackup｜お家のWi-Fiでファイル共有・自動バックアップ"
-    : "ShareOrBackup｜Home Wi-Fi file sharing & backup";
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const k = el.getAttribute("data-i18n");
-    if (t[k] !== undefined) el.textContent = t[k];
-  });
-  document.querySelectorAll("[data-i18n-html]").forEach(el => {
-    const k = el.getAttribute("data-i18n-html");
-    if (t[k] !== undefined) el.innerHTML = t[k];
-  });
-  document.getElementById("lang-ja").classList.toggle("active", loc === "ja");
-  document.getElementById("lang-en").classList.toggle("active", loc === "en");
-}
-function setLang(loc) {
-  try { localStorage.setItem("sob_lang", loc); } catch (e) {}
-  applyLang(loc);
-}
+// 表示は常に日本語(index.htmlはja固定)。旧リンク(?lang=en)は静的英語版 /en/ へ誘導。
 (function init() {
-  const q = new URLSearchParams(location.search).get("lang");
-  let loc = q;
-  if (!loc) { try { loc = localStorage.getItem("sob_lang"); } catch (e) {} }
-  if (!loc) loc = (navigator.language || "ja").toLowerCase().startsWith("en") ? "en" : "ja";
-  applyLang(loc);
+  var q = new URLSearchParams(location.search).get("lang");
+  if (q === "en") location.replace("/en/");
 })();
 </script>
 </body>
