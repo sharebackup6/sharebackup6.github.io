@@ -40,8 +40,8 @@
   "inLanguage": "en",
   "step": [
     { "@type": "HowToStep", "name": "Enable sharing on the NAS or PC", "text": "Enable SMB (Windows sharing) on your NAS, or create a shared folder on your Windows PC." },
-    { "@type": "HowToStep", "name": "Add a destination in the app", "text": "In the app, choose Add device, then SMB." },
-    { "@type": "HowToStep", "name": "Enter the connection details", "text": "Enter the address, port (usually 445), share name, username and password." },
+    { "@type": "HowToStep", "name": "Pick your NAS (auto-detected)", "text": "On the same Wi-Fi, the app discovers your NAS automatically and lists it. Just pick it to connect." },
+    { "@type": "HowToStep", "name": "(Only if not listed) Add it manually", "text": "Choose Add device, then SMB, and enter the address, port (usually 445), share name, username and password." },
     { "@type": "HowToStep", "name": "Pick a folder", "text": "Choose the folder on your device and the shared folder to store backups." },
     { "@type": "HowToStep", "name": "Turn on automatic backup", "text": "Enable automatic backup so files are saved whenever you are on Wi-Fi." }
   ]
@@ -109,8 +109,8 @@
   <h2>Setup steps</h2>
   <ol>
     <li><b>Enable sharing on the destination</b><br>On a NAS, enable SMB (Windows sharing). On a Windows PC, create a shared folder and allow file sharing.</li>
-    <li><b>In the app, choose Add device &rarr; SMB</b></li>
-    <li><b>Enter the connection details</b><br>Address (IP or host name), port (usually <code>445</code>), share name, username and password. If guest access is disabled, a username and password are required.</li>
+    <li><b>Pick your NAS (usually auto-detected)</b><br>On the same Wi-Fi, the app finds your NAS automatically and lists it. Normally you just pick it - no manual setup.</li>
+    <li><b>(Only if it is not listed) Add it manually</b><br>Choose Add device &rarr; SMB and enter the address (IP or host name), port (usually <code>445</code>), share name, username and password. If guest access is disabled, a username and password are required.</li>
     <li><b>Pick folders</b><br>Choose the folder on your device and the shared folder to store the backup.</li>
     <li><b>Turn on automatic backup</b><br>From then on, files are saved automatically whenever you are on the same Wi-Fi.</li>
   </ol>
@@ -119,7 +119,7 @@
     <b>If it will not connect</b>
     <ul>
       <li>Guest access is often disabled &rarr; set a username and password</li>
-      <li>The port is usually <code>445</code>. Add custom ports manually</li>
+      <li>Not listed &rarr; auto-discovery uses default ports (SMB <code>445</code>/<code>1445</code>) only. For custom ports or when it is not detected, add it manually</li>
       <li>On Windows, allow "File and printer sharing" in the firewall</li>
     </ul>
   </div>
