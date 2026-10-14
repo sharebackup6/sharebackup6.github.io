@@ -11,7 +11,7 @@
 <link rel="icon" href="app-icon.png" />
 <!-- analytics:start -->
 <meta name="google-site-verification" content="jhMZRKJipqJFjJ_BSRY97KanM6iyrEgljYaKSEq4jgI" />
-<!-- Google tag (gtag.js) — ?noana=1 で自分を計測から除外(端末に記憶) -->
+<!-- Google Tag Manager (GTM-5CDHCBXQ / GA4 測定ID G-C3PCFVPHLZ) — ?noana=1 で自分を計測から除外(端末に記憶) -->
 <script>
   (function () {
     try {
@@ -19,16 +19,14 @@
       if (v === '1') localStorage.setItem('noana', '1');
       else if (v === '0') localStorage.removeItem('noana');
       if (localStorage.getItem('noana') === '1') return;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = document.getElementsByTagName('script')[0];
+      var j = document.createElement('script');
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-5CDHCBXQ';
+      f.parentNode.insertBefore(j, f);
     } catch (e) {}
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-KQYP3XC8WN';
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', 'G-KQYP3XC8WN');
   })();
 </script>
 <!-- analytics:end -->
