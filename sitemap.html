@@ -11,13 +11,25 @@
 <link rel="icon" href="app-icon.png" />
 <!-- analytics:start -->
 <meta name="google-site-verification" content="jhMZRKJipqJFjJ_BSRY97KanM6iyrEgljYaKSEq4jgI" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8QVBM9WD5W"></script>
+<!-- Google tag (gtag.js) — ?noana=1 で自分を計測から除外(端末に記憶) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8QVBM9WD5W');
+  (function () {
+    try {
+      var v = new URLSearchParams(location.search).get('noana');
+      if (v === '1') localStorage.setItem('noana', '1');
+      else if (v === '0') localStorage.removeItem('noana');
+      if (localStorage.getItem('noana') === '1') return;
+    } catch (e) {}
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QVBM9WD5W';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-8QVBM9WD5W');
+  })();
 </script>
 <!-- analytics:end -->
 <style>
