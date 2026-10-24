@@ -3,7 +3,7 @@ title: "Playストアのスクショが決まらないのは、センスでは�
 emoji: "📱"
 type: "tech"
 topics: ["android", "googleplay", "figma", "design", "個人開発"]
-published: false
+published: true
 ---
 自作のスクリーンショットを何度作り直しても、しっくりきませんでした。足りなかったのは画力ではなく、先に決めておくべき「型」でした。Figmaコミュニティの無料テンプレートを借りて、Play提出用の6枚を組み直した記録です。
 
