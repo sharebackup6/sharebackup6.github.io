@@ -7,7 +7,7 @@ published: false
 ---
 スマホの「空き容量が残りわずかです」をきっかけに、クラウドの月額を公開価格で試算しました。写真2万枚なら年間2,000〜3,500円、5万枚なら6,000〜17,000円。必要なのは保存先の初期投資だけで、月額はかかりません。
 
-![cover](/images/cloud-storage-cost-2026/sharebackup-cloud-cost.cover.ja.png)
+![sharebackup-cloud-cost.cover.ja](/images/cloud-storage-cost-2026/sharebackup-cloud-cost.cover.ja.png)
 
 ## きっかけは「空き容量が残りわずかです」
 
@@ -59,7 +59,7 @@ iPhoneのHEIC形式なら1枚1.5〜2MB程度まで小さくなり、2万枚で�
 
 もちろん、電気代や故障のリスクは残ります。ただ「毎月引かれる」状態からは抜けられます。
 
-![グラフ](/images/cloud-storage-cost-2026/sharebackup-cloud-cost.chart.ja.png)
+![sharebackup-cloud-cost.chart.ja](/images/cloud-storage-cost-2026/sharebackup-cloud-cost.chart.ja.png)
 
 
 ## 見落としがちな3つのコスト
