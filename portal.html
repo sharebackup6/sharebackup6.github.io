@@ -56,6 +56,8 @@
   h1 { font-family:var(--font-display); font-size:clamp(26px,4vw,38px); line-height:1.25;
     margin:18px 0 10px; letter-spacing:-.01em; }
   .lead { color:var(--muted); font-size:16px; margin:0 auto; max-width:640px; }
+  .lang { position:absolute; top:20px; right:24px; font-size:13px; color:var(--accent); text-decoration:none; }
+  .wrap { position:relative; }
   .grid { display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); }
   .card { background:var(--surface); border:1px solid var(--border); border-radius:20px;
     padding:26px; display:flex; flex-direction:column; }
@@ -80,6 +82,7 @@
 </head>
 <body>
 <div class="wrap">
+  <a class="lang" href="en/portal.html" onclick="localStorage.setItem('lang','en')">English</a>
   <header>
     <span class="brand">ActiveJ</span>
     <h1>お家のWi-Fiで完結する、2つのAndroidアプリ</h1>
@@ -139,5 +142,17 @@
     <div style="margin-top:10px">© 2026 ActiveJ</div>
   </footer>
 </div>
+<script>
+  // 初回のみブラウザ言語で英語版へ。以後は選択(?lang= / リンク)を尊重する
+  (function () {
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q) { localStorage.setItem('lang', q); return; }
+      if (localStorage.getItem('lang')) return;
+      var l = (navigator.language || 'ja').toLowerCase();
+      if (!l.startsWith('ja')) location.replace('en/portal.html');
+    } catch (e) {}
+  })();
+</script>
 </body>
 </html>

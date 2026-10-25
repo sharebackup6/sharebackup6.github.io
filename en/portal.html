@@ -34,6 +34,8 @@
   h1 { font-family:var(--font-display); font-size:clamp(26px,4vw,38px); line-height:1.25;
     margin:18px 0 10px; letter-spacing:-.01em; }
   .lead { color:var(--muted); font-size:16px; margin:0 auto; max-width:660px; }
+  .lang { position:absolute; top:20px; right:24px; font-size:13px; color:var(--accent); text-decoration:none; }
+  .wrap { position:relative; }
   .grid { display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); }
   .card { background:var(--surface); border:1px solid var(--border); border-radius:20px;
     padding:26px; display:flex; flex-direction:column; }
@@ -58,6 +60,7 @@
 </head>
 <body>
 <div class="wrap">
+  <a class="lang" href="../portal.html" onclick="localStorage.setItem('lang','ja')">日本語</a>
   <header>
     <span class="brand">ActiveJ</span>
     <h1>Two Android apps that keep your data at home</h1>
