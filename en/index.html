@@ -200,8 +200,7 @@
   /* ─── hero ───────────────────────────────────────────────────────────── */
   .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 1.05fr); gap: var(--space-8); align-items: center; }
   .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; min-height: 320px; }
-  .hero-visual .hero-ai { width: 100%; max-width: 720px; height: auto; display: block;
-    border-radius: var(--radius-lg); box-shadow: 0 18px 40px rgba(60, 64, 67, 0.18); }
+  .hero-visual .hero-ai { width: 100%; max-width: 720px; height: auto; display: block; }
   @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } .hero-visual { min-height: 0; margin-top: var(--space-6); } }
   /* モバイル: 2台の枠が画面幅を超えて左右にはみ出さないよう比率で縮める */
   @media (max-width: 639px) {
@@ -371,7 +370,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img class="hero-ai" src="../hero_ai.png" width="1184" height="864" alt="机の上のスマホからNAS・ノートPC・古いスマホ・USBへ写真とファイルが保存される様子" fetchpriority="high" decoding="async" />
+        <img class="hero-ai" src="../hero_ai.png" width="783" height="556" alt="左に大きなスマホ、右にNAS・ノートPC・古いスマホ・USBドライブが並ぶ様子" fetchpriority="high" decoding="async" />
       </div>
     </div>
   </section>
