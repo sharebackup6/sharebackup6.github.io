@@ -3,7 +3,7 @@ title: "クラウドの月額をやめたら、1年でいくら浮くのか"
 emoji: "💰"
 type: "idea"
 topics: ["android", "cloud", "storage", "backup", "cost"]
-published: false
+published: true
 ---
 スマホの「空き容量が残りわずかです」をきっかけに、クラウドの月額を公開価格で試算しました。写真2万枚なら年間2,000〜3,500円、5万枚なら6,000〜17,000円。必要なのは保存先の初期投資だけで、月額はかかりません。
 
