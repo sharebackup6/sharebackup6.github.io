@@ -240,6 +240,17 @@
   /* ─── footer ─────────────────────────────────────────────────────────── */
   footer { border-top: 1px solid var(--border); background: var(--surface); }
   footer .container { padding-block: var(--space-8); color: var(--muted); font-size: var(--text-sm); display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: space-between; align-items: center; }
+  .table-wrap { overflow-x:auto; margin-block-start:var(--space-6);
+    border:1px solid var(--border); border-radius:16px; background:var(--surface); }
+  table.cmp { width:100%; border-collapse:collapse; font-size:15px; line-height:1.5; min-width:720px; }
+  table.cmp td { font-size:16px; }
+  table.cmp th, table.cmp td { padding:12px 14px; border-bottom:1px solid var(--border-soft);
+    text-align:left; vertical-align:top; }
+  table.cmp thead th { background:var(--surface-warm); font-weight:700; white-space:nowrap; }
+  table.cmp tbody th { font-weight:600; color:var(--fg-2); white-space:nowrap; }
+  table.cmp tbody tr:last-child th, table.cmp tbody tr:last-child td { border-bottom:0; }
+  table.cmp td:nth-of-type(1), table.cmp th:nth-of-type(2) { background:rgba(26,115,232,.045); }
+  table.cmp td:nth-of-type(1) { color:var(--accent); font-weight:600; }
 </style>
 <script type="application/ld+json">
 {
@@ -345,6 +356,7 @@
       <a href="#features" data-i18n="nav.features">機能</a>
       <a href="#how" data-i18n="nav.how">使い方</a>
       <a href="#shots" data-i18n="nav.shots">画面</a>
+      <a href="#compare" data-i18n="nav.compare">比較</a>
       <a href="#pricing" data-i18n="nav.pricing">料金</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
     </nav>
@@ -452,6 +464,35 @@
         <span class="chip"><span class="dot"></span><span data-i18n="chip.s3">S3互換</span></span>
       </div>
       <p class="lead center" style="margin:var(--space-6) auto 0" data-i18n="proto.note">Windows共有・NAS・Linuxサーバ・クラウドストレージまで、いつもの保存先にそのまま。</p>
+    </div>
+  </section>
+
+  <!-- 5.5 COMPARE -->
+  <section id="compare">
+    <div class="container">
+      <div class="center stack">
+        <p class="eyebrow" data-i18n="cmp.eyebrow">COMPARE</p>
+        <h2 data-i18n="cmp.title">他のアプリとの違い</h2>
+        <p class="lead center" data-i18n="cmp.lead">同期アプリはほかにもあります。違いは「範囲」と「相手」です。</p>
+      </div>
+      <div class="table-wrap">
+        <table class="cmp">
+          <thead>
+            <tr><th data-i18n="cmp.h.item">項目</th><th data-i18n="cmp.h.sob">ShareOrBackup</th><th data-i18n="cmp.h.fs">FolderSync</th><th data-i18n="cmp.h.st">Syncthing</th><th data-i18n="cmp.h.g1">Google One</th></tr>
+          </thead>
+          <tbody>
+            <tr><th data-i18n="cmp.r1">双方向同期</th><td data-i18n="cmp.r1.c1">◯</td><td data-i18n="cmp.r1.c2">◯</td><td data-i18n="cmp.r1.c3">◯</td><td data-i18n="cmp.r1.c4">✕</td></tr>
+            <tr><th data-i18n="cmp.r2">アプリ同士P2P</th><td data-i18n="cmp.r2.c1">◯</td><td data-i18n="cmp.r2.c2">✕</td><td data-i18n="cmp.r2.c3">◯</td><td data-i18n="cmp.r2.c4">✕</td></tr>
+            <tr><th data-i18n="cmp.r3">既存サーバーへ直接（相手に導入不要）</th><td data-i18n="cmp.r3.c1">◯</td><td data-i18n="cmp.r3.c2">◯</td><td data-i18n="cmp.r3.c3">✗</td><td data-i18n="cmp.r3.c4">✕</td></tr>
+            <tr><th data-i18n="cmp.r4">クラウド不要</th><td data-i18n="cmp.r4.c1">◯</td><td data-i18n="cmp.r4.c2">△（対応可）</td><td data-i18n="cmp.r4.c3">◯</td><td data-i18n="cmp.r4.c4">✕</td></tr>
+            <tr><th data-i18n="cmp.r5">初期設定</th><td data-i18n="cmp.r5.c1">◯（同じWi-Fiで選ぶだけ）</td><td data-i18n="cmp.r5.c2">△（サーバー情報を手入力）</td><td data-i18n="cmp.r5.c3">△（デバイス・フォルダの相互承認）</td><td data-i18n="cmp.r5.c4">◯（ログインのみ）</td></tr>
+            <tr><th data-i18n="cmp.r6">バックグラウンド動作</th><td data-i18n="cmp.r6.c1">◯（画面OFFでも継続）</td><td data-i18n="cmp.r6.c2">◯</td><td data-i18n="cmp.r6.c3">△（Dozeで停止、手動除外が必要な場合あり）</td><td data-i18n="cmp.r6.c4">◯</td></tr>
+            <tr><th data-i18n="cmp.r7">アプリ内の広告</th><td data-i18n="cmp.r7.c1">なし</td><td data-i18n="cmp.r7.c2">あり（無料版）</td><td data-i18n="cmp.r7.c3">なし</td><td data-i18n="cmp.r7.c4">なし</td></tr>
+            <tr><th data-i18n="cmp.r8">料金</th><td data-i18n="cmp.r8.c1">無料・Pro買い切り（一度きり）</td><td data-i18n="cmp.r8.c2">無料・Pro買い切り（一度きり）</td><td data-i18n="cmp.r8.c3">無料</td><td data-i18n="cmp.r8.c4">月額（継続課金）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lead center" style="margin:var(--space-5) auto 0; font-size:var(--text-sm)" data-i18n="cmp.note">◯＝標準対応、△＝一部対応・条件付き、✗＝非対応。2026年10月時点の公開情報にもとづく比較です。具体的な金額の比較は<a href="https://zenn.dev/activej/articles/cloud-storage-cost-2026">クラウド費用の記事</a>へ。</p>
     </div>
   </section>
 
@@ -685,6 +726,56 @@ const I18N = {
     "q8.q": "Can I use it outside my home?", "q8.a": "It is designed for use on the same network. To reach storage at home from outside, you need a VPN or a similar setup.",
     "q9.q": "Which Android versions are supported?", "q9.a": "Android 8.0 (API 26) and later are supported.",
     "q10.q": "What is the difference between sync and backup?", "q10.a": "Sync keeps two folders identical in both directions. Backup is a one-way copy from your device to the destination, protecting the original.",
+    "cmp.eyebrow": "COMPARE",
+    "cmp.title": "How it compares",
+    "cmp.lead": "There are other sync apps. The difference is scope and peers.",
+    "cmp.note": "Yes = supported, Partial = supported with conditions, No = not supported. Based on public information as of October 2026. For actual prices, see the cloud cost article.",
+    "cmp.h.item": "Item",
+    "cmp.h.sob": "ShareOrBackup",
+    "cmp.h.fs": "FolderSync",
+    "cmp.h.st": "Syncthing",
+    "cmp.h.g1": "Google One",
+    "cmp.r1": "Two-way folder sync",
+    "cmp.r1.c1": "Yes",
+    "cmp.r1.c2": "Yes",
+    "cmp.r1.c3": "Yes",
+    "cmp.r1.c4": "No",
+    "cmp.r2": "App-to-app P2P",
+    "cmp.r2.c1": "Yes",
+    "cmp.r2.c2": "No",
+    "cmp.r2.c3": "Yes",
+    "cmp.r2.c4": "No",
+    "cmp.r3": "Direct to existing servers (nothing to install)",
+    "cmp.r3.c1": "Yes",
+    "cmp.r3.c2": "Yes",
+    "cmp.r3.c3": "No",
+    "cmp.r3.c4": "No",
+    "cmp.r4": "No cloud required",
+    "cmp.r4.c1": "Yes",
+    "cmp.r4.c2": "Partial (possible)",
+    "cmp.r4.c3": "Yes",
+    "cmp.r4.c4": "No",
+    "cmp.r5": "Initial setup",
+    "cmp.r5.c1": "Yes (pick a device on Wi-Fi)",
+    "cmp.r5.c2": "Partial (type server details)",
+    "cmp.r5.c3": "Partial (mutual device approval)",
+    "cmp.r5.c4": "Yes (sign in only)",
+    "cmp.r6": "Background operation",
+    "cmp.r6.c1": "Yes (continues with screen off)",
+    "cmp.r6.c2": "Yes",
+    "cmp.r6.c3": "Partial (stops in Doze; manual exemption may be needed)",
+    "cmp.r6.c4": "Yes",
+    "cmp.r7": "In-app ads",
+    "cmp.r7.c1": "None",
+    "cmp.r7.c2": "Yes (free version)",
+    "cmp.r7.c3": "None",
+    "cmp.r7.c4": "None",
+    "cmp.r8": "Pricing",
+    "cmp.r8.c1": "Free, Pro one-time purchase",
+    "cmp.r8.c2": "Free, Pro one-time purchase",
+    "cmp.r8.c3": "Free",
+    "cmp.r8.c4": "Monthly subscription",
+    "nav.compare": "Compare",
     "q11.q": "How is this different from Syncthing?", "q11.a": "Both sync folders in two directions and avoid the cloud. The difference is scope and peers: Syncthing syncs devices that run Syncthing, over LAN or the internet. ShareOrBackup works mainly inside your home Wi-Fi and can also connect directly to existing servers such as SMB, SFTP, WebDAV and S3-compatible storage. Use Syncthing if you need to sync while away from home; use ShareOrBackup to move photos to your own NAS or PC.",
     "how.guide": "See the detailed setup guide for NAS and Windows shares",
     "share.eyebrow": "SHARE", "share.title": "Share this app", "share.hatena": "Hatena Bookmark",

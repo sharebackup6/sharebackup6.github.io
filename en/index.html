@@ -240,6 +240,17 @@
   /* ─── footer ─────────────────────────────────────────────────────────── */
   footer { border-top: 1px solid var(--border); background: var(--surface); }
   footer .container { padding-block: var(--space-8); color: var(--muted); font-size: var(--text-sm); display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: space-between; align-items: center; }
+  .table-wrap { overflow-x:auto; margin-block-start:var(--space-6);
+    border:1px solid var(--border); border-radius:16px; background:var(--surface); }
+  table.cmp { width:100%; border-collapse:collapse; font-size:15px; line-height:1.5; min-width:720px; }
+  table.cmp td { font-size:16px; }
+  table.cmp th, table.cmp td { padding:12px 14px; border-bottom:1px solid var(--border-soft);
+    text-align:left; vertical-align:top; }
+  table.cmp thead th { background:var(--surface-warm); font-weight:700; white-space:nowrap; }
+  table.cmp tbody th { font-weight:600; color:var(--fg-2); white-space:nowrap; }
+  table.cmp tbody tr:last-child th, table.cmp tbody tr:last-child td { border-bottom:0; }
+  table.cmp td:nth-of-type(1), table.cmp th:nth-of-type(2) { background:rgba(26,115,232,.045); }
+  table.cmp td:nth-of-type(1) { color:var(--accent); font-weight:600; }
 </style>
 <script type="application/ld+json">
 {
@@ -335,6 +346,7 @@
       <a href="#features" data-i18n="nav.features">Features</a>
       <a href="#how" data-i18n="nav.how">How it works</a>
       <a href="#shots" data-i18n="nav.shots">Screens</a>
+      <a href="#compare" data-i18n="nav.compare">Compare</a>
       <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
     </nav>
@@ -442,6 +454,35 @@
         <span class="chip"><span class="dot"></span><span data-i18n="chip.s3">S3-compatible</span></span>
       </div>
       <p class="lead center" style="margin:var(--space-6) auto 0" data-i18n="proto.note">Windows shares, NAS, Linux servers and cloud storage — your usual destinations, as they are.</p>
+    </div>
+  </section>
+
+  <!-- 5.5 COMPARE -->
+  <section id="compare">
+    <div class="container">
+      <div class="center stack">
+        <p class="eyebrow" data-i18n="cmp.eyebrow">COMPARE</p>
+        <h2 data-i18n="cmp.title">How it compares</h2>
+        <p class="lead center" data-i18n="cmp.lead">There are other sync apps. The difference is scope and peers.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="cmp">
+          <thead>
+            <tr><th data-i18n="cmp.h.item">Item</th><th data-i18n="cmp.h.sob">ShareOrBackup</th><th data-i18n="cmp.h.fs">FolderSync</th><th data-i18n="cmp.h.st">Syncthing</th><th data-i18n="cmp.h.g1">Google One</th></tr>
+          </thead>
+          <tbody>
+            <tr><th data-i18n="cmp.r1">Two-way folder sync</th><td data-i18n="cmp.r1.c1">Yes</td><td data-i18n="cmp.r1.c2">Yes</td><td data-i18n="cmp.r1.c3">Yes</td><td data-i18n="cmp.r1.c4">No</td></tr>
+            <tr><th data-i18n="cmp.r2">App-to-app P2P</th><td data-i18n="cmp.r2.c1">Yes</td><td data-i18n="cmp.r2.c2">No</td><td data-i18n="cmp.r2.c3">Yes</td><td data-i18n="cmp.r2.c4">No</td></tr>
+            <tr><th data-i18n="cmp.r3">Direct to existing servers (nothing to install)</th><td data-i18n="cmp.r3.c1">Yes</td><td data-i18n="cmp.r3.c2">Yes</td><td data-i18n="cmp.r3.c3">No</td><td data-i18n="cmp.r3.c4">No</td></tr>
+            <tr><th data-i18n="cmp.r4">No cloud required</th><td data-i18n="cmp.r4.c1">Yes</td><td data-i18n="cmp.r4.c2">Partial (possible)</td><td data-i18n="cmp.r4.c3">Yes</td><td data-i18n="cmp.r4.c4">No</td></tr>
+            <tr><th data-i18n="cmp.r5">Initial setup</th><td data-i18n="cmp.r5.c1">Yes (pick a device on Wi-Fi)</td><td data-i18n="cmp.r5.c2">Partial (type server details)</td><td data-i18n="cmp.r5.c3">Partial (mutual device approval)</td><td data-i18n="cmp.r5.c4">Yes (sign in only)</td></tr>
+            <tr><th data-i18n="cmp.r6">Background operation</th><td data-i18n="cmp.r6.c1">Yes (continues with screen off)</td><td data-i18n="cmp.r6.c2">Yes</td><td data-i18n="cmp.r6.c3">Partial (stops in Doze; manual exemption may be needed)</td><td data-i18n="cmp.r6.c4">Yes</td></tr>
+            <tr><th data-i18n="cmp.r7">In-app ads</th><td data-i18n="cmp.r7.c1">None</td><td data-i18n="cmp.r7.c2">Yes (free version)</td><td data-i18n="cmp.r7.c3">None</td><td data-i18n="cmp.r7.c4">None</td></tr>
+            <tr><th data-i18n="cmp.r8">Pricing</th><td data-i18n="cmp.r8.c1">Free, Pro one-time purchase</td><td data-i18n="cmp.r8.c2">Free, Pro one-time purchase</td><td data-i18n="cmp.r8.c3">Free</td><td data-i18n="cmp.r8.c4">Monthly subscription</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lead center" style="margin:var(--space-5) auto 0; font-size:var(--text-sm)" data-i18n="cmp.note">Yes = supported, Partial = supported with conditions, No = not supported. Based on public information as of October 2026. For actual prices, see the cloud cost article.</p>
     </div>
   </section>
 
