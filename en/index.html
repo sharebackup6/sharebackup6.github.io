@@ -200,12 +200,14 @@
   /* ─── hero ───────────────────────────────────────────────────────────── */
   .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 1.05fr); gap: var(--space-8); align-items: center; }
   .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; min-height: 320px; }
-  .hero-visual .hero-ai { width: 100%; max-width: 720px; height: auto; display: block;
-    border-radius: var(--radius-lg); box-shadow: 0 18px 40px rgba(60, 64, 67, 0.18); }
+  .hero-visual .hero-mascot { width: 100%; max-width: 320px; height: auto; display: block;
+    animation: mascot-float 4s ease-in-out infinite alternate; }
+  @keyframes mascot-float { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+  @media (prefers-reduced-motion: reduce) { .hero-visual .hero-mascot { animation: none; } }
   @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } .hero-visual { min-height: 0; margin-top: var(--space-6); } }
   /* モバイル: 2台の枠が画面幅を超えて左右にはみ出さないよう比率で縮める */
   @media (max-width: 639px) {
-    .hero-visual .hero-ai { max-width: 100%; }
+    .hero-visual .hero-mascot { max-width: 260px; }
   }
 
   /* ─── gallery ────────────────────────────────────────────────────────── */
@@ -371,7 +373,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img class="hero-ai" src="../hero_ai.png" width="1162" height="848" alt="メイン画面を大きく写したスマホと、点線でつながるNAS・ノートPC・古いスマホ・USB" fetchpriority="high" decoding="async" />
+        <img class="hero-mascot" src="mascot.png" width="558" height="618" alt="ShareOrBackupのマスコット" fetchpriority="high" decoding="async" />
       </div>
     </div>
   </section>
@@ -490,13 +492,13 @@
         <p class="lead" data-i18n="shots.lead">Manage devices and destinations in one list, with clear status at a glance.</p>
       </div>
       <div class="gallery">
-        <figure><img src="../screenshots_en/01_home.png" width="1408" height="2900" alt="Main screen: list of sync links" loading="lazy" decoding="async" /><figcaption data-i18n="g1">Main</figcaption></figure>
-        <figure><img src="../screenshots_en/02_devices.png" width="1408" height="2900" alt="Devices: peers available on the network" loading="lazy" decoding="async" /><figcaption data-i18n="g2">Devices</figcaption></figure>
-        <figure><img src="../screenshots_en/03_explore_grid.png" width="1408" height="2900" alt="Thumbnail view: photo grid inside a folder" loading="lazy" decoding="async" /><figcaption data-i18n="g3">Thumbnails</figcaption></figure>
-        <figure><img src="../screenshots_en/04_explore_list.png" width="1408" height="2900" alt="List view: files and their sizes" loading="lazy" decoding="async" /><figcaption data-i18n="g4">List</figcaption></figure>
-        <figure><img src="../screenshots_en/05_onboarding.png" width="1408" height="2900" alt="Getting started: initial setup guidance" loading="lazy" decoding="async" /><figcaption data-i18n="g5">Intro</figcaption></figure>
-        <figure><img src="../screenshots_en/06_settings.png" width="1408" height="2900" alt="Settings: sync and backup options" loading="lazy" decoding="async" /><figcaption data-i18n="g6">Settings</figcaption></figure>
-      </div>
+        <figure><img src="store/01_home_self.png" width="1080" height="1920" alt="メイン画面（自分）" loading="lazy" decoding="async" /><figcaption>メイン画面（自分）</figcaption></figure>
+        <figure><img src="store/02_home_peer.png" width="1080" height="1920" alt="相手のフォルダ" loading="lazy" decoding="async" /><figcaption>相手のフォルダ</figcaption></figure>
+        <figure><img src="store/03_sync.png" width="1080" height="1920" alt="双方向の同期" loading="lazy" decoding="async" /><figcaption>双方向の同期</figcaption></figure>
+        <figure><img src="store/04_browse.png" width="1080" height="1920" alt="写真のサムネイル" loading="lazy" decoding="async" /><figcaption>写真のサムネイル</figcaption></figure>
+        <figure><img src="store/05_list.png" width="1080" height="1920" alt="一覧表示" loading="lazy" decoding="async" /><figcaption>一覧表示</figcaption></figure>
+        <figure><img src="store/06_pricing.png" width="1080" height="1920" alt="無料とPro" loading="lazy" decoding="async" /><figcaption>無料とPro</figcaption></figure>
+      
     </div>
   </section>
 
