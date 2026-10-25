@@ -313,6 +313,11 @@
       "@type": "Question",
       "name": "What is the difference between sync and backup?",
       "acceptedAnswer": { "@type": "Answer", "text": "Sync keeps two folders identical in both directions. Backup is a one-way copy from your device to the destination, protecting the original." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from Syncthing?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Both sync folders in two directions and avoid the cloud. The difference is scope and peers: Syncthing syncs devices that run Syncthing, over LAN or the internet. ShareOrBackup works mainly inside your home Wi-Fi and can also connect directly to existing servers such as SMB, SFTP, WebDAV and S3-compatible storage." }
     }
   ]
 }
@@ -511,6 +516,7 @@
       <details><summary data-i18n="q8.q">Can I use it outside my home?</summary><p data-i18n="q8.a">It is designed for use on the same network. To reach storage at home from outside, you need a VPN or a similar setup.</p></details>
       <details><summary data-i18n="q9.q">Which Android versions are supported?</summary><p data-i18n="q9.a">Android 8.0 (API 26) and later are supported.</p></details>
       <details><summary data-i18n="q10.q">What is the difference between sync and backup?</summary><p data-i18n="q10.a">Sync keeps two folders identical in both directions. Backup is a one-way copy from your device to the destination, protecting the original.</p></details>
+      <details><summary data-i18n="q11.q">How is this different from Syncthing?</summary><p data-i18n="q11.a">Both sync folders in two directions and avoid the cloud. The difference is scope and peers: Syncthing syncs devices that run Syncthing, over LAN or the internet. ShareOrBackup works mainly inside your home Wi-Fi and can also connect directly to existing servers such as SMB, SFTP, WebDAV and S3-compatible storage. Use Syncthing if you need to sync while away from home; use ShareOrBackup to move photos to your own NAS or PC.</p></details>
     </div>
   </section>
 

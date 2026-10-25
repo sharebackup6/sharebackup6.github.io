@@ -323,6 +323,11 @@
       "@type": "Question",
       "name": "同期とバックアップの違いは？",
       "acceptedAnswer": { "@type": "Answer", "text": "同期は2つのフォルダを双方向で同じ状態に保ちます。バックアップは端末から保存先への片方向コピーで、元データを守ります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "Syncthingと何が違いますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "どちらも双方向のフォルダ同期ができ、クラウドを使いません。違いは範囲と相手です。SyncthingはSyncthingを入れた端末同士を、LANでもインターネット経由でも同期します。ShareOrBackupは同じWi-Fi内を基本とし、アプリ同士に加えてSMB・SFTP・WebDAV・S3互換の既存サーバーへ直接つなげます。" }
     }
   ]
 }
@@ -521,6 +526,7 @@
       <details><summary data-i18n="q8.q">外出先からも使えますか？</summary><p data-i18n="q8.a">基本は同じネットワーク内での利用を想定しています。外出先から自宅の保存先へ直接つなぐ場合は、VPNなどの設定が必要です。</p></details>
       <details><summary data-i18n="q9.q">対応しているAndroidのバージョンは？</summary><p data-i18n="q9.a">Android 8.0（API 26）以降に対応しています。</p></details>
       <details><summary data-i18n="q10.q">同期とバックアップの違いは？</summary><p data-i18n="q10.a">同期は2つのフォルダを双方向で同じ状態に保ちます。バックアップは端末から保存先への片方向コピーで、元データを守ります。</p></details>
+      <details><summary data-i18n="q11.q">Syncthingと何が違いますか？</summary><p data-i18n="q11.a">どちらも双方向のフォルダ同期ができ、クラウドを使いません。違いは範囲と相手です。SyncthingはSyncthingを入れた端末同士を、LANでもインターネット経由でも同期します。ShareOrBackupは同じWi-Fi内を基本とし、アプリ同士に加えてSMB・SFTP・WebDAV・S3互換の既存サーバーへ直接つなげます。外出先から同期したいならSyncthing、自宅のNASやPCへ写真を逃がしたいならShareOrBackupが向いています。</p></details>
     </div>
   </section>
 
@@ -613,6 +619,7 @@ const I18N = {
     "q8.q": "外出先からも使えますか？", "q8.a": "基本は同じネットワーク内での利用を想定しています。外出先から自宅の保存先へ直接つなぐ場合は、VPNなどの設定が必要です。",
     "q9.q": "対応しているAndroidのバージョンは？", "q9.a": "Android 8.0（API 26）以降に対応しています。",
     "q10.q": "同期とバックアップの違いは？", "q10.a": "同期は2つのフォルダを双方向で同じ状態に保ちます。バックアップは端末から保存先への片方向コピーで、元データを守ります。",
+    "q11.q": "Syncthingと何が違いますか？", "q11.a": "どちらも双方向のフォルダ同期ができ、クラウドを使いません。違いは範囲と相手です。SyncthingはSyncthingを入れた端末同士を、LANでもインターネット経由でも同期します。ShareOrBackupは同じWi-Fi内を基本とし、アプリ同士に加えてSMB・SFTP・WebDAV・S3互換の既存サーバーへ直接つなげます。外出先から同期したいならSyncthing、自宅のNASやPCへ写真を逃がしたいならShareOrBackupが向いています。",
     "how.guide": "NAS や Windows 共有の詳しい設定手順はこちら",
     "share.eyebrow": "SHARE", "share.title": "このアプリをシェア", "share.hatena": "はてブ",
     "footer.note": "データはお家のネットワークの中で完結します。広告なし・クラウドの月額なし。",
@@ -678,6 +685,7 @@ const I18N = {
     "q8.q": "Can I use it outside my home?", "q8.a": "It is designed for use on the same network. To reach storage at home from outside, you need a VPN or a similar setup.",
     "q9.q": "Which Android versions are supported?", "q9.a": "Android 8.0 (API 26) and later are supported.",
     "q10.q": "What is the difference between sync and backup?", "q10.a": "Sync keeps two folders identical in both directions. Backup is a one-way copy from your device to the destination, protecting the original.",
+    "q11.q": "How is this different from Syncthing?", "q11.a": "Both sync folders in two directions and avoid the cloud. The difference is scope and peers: Syncthing syncs devices that run Syncthing, over LAN or the internet. ShareOrBackup works mainly inside your home Wi-Fi and can also connect directly to existing servers such as SMB, SFTP, WebDAV and S3-compatible storage. Use Syncthing if you need to sync while away from home; use ShareOrBackup to move photos to your own NAS or PC.",
     "how.guide": "See the detailed setup guide for NAS and Windows shares",
     "share.eyebrow": "SHARE", "share.title": "Share this app", "share.hatena": "Hatena Bookmark",
     "footer.note": "Your data stays inside your home network. No ads, no monthly cloud fees.",
