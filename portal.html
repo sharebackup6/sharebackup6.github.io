@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ActiveJ — Androidアプリ2本（DocScan AI / ShareOrBackup）</title>
+<meta name="description" content="広告なし・クラウド月額なしで使えるAndroidアプリを個人開発しています。書類スキャンの DocScan AI と、お家のWi-Fiで共有・バックアップする ShareOrBackup。" />
+<link rel="canonical" href="https://sharebackup6.github.io/portal.html" />
+<meta name="theme-color" content="#1a73e8" />
+<link rel="icon" href="app-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ActiveJ — Androidアプリ2本" />
+<meta property="og:description" content="DocScan AI（書類スキャン・AI整理）と ShareOrBackup（Wi-Fi共有・自動バックアップ）。広告なし・クラウド月額なし。" />
+<meta property="og:url" content="https://sharebackup6.github.io/portal.html" />
+<meta property="og:image" content="https://sharebackup6.github.io/og_image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- analytics:start -->
+<meta name="google-site-verification" content="jhMZRKJipqJFjJ_BSRY97KanM6iyrEgljYaKSEq4jgI" />
+<!-- Google Tag Manager (GTM-5CDHCBXQ / GA4 測定ID G-C3PCFVPHLZ) — ?noana=1 で自分を計測から除外(端末に記憶) -->
+<script>
+  (function () {
+    try {
+      var v = new URLSearchParams(location.search).get('noana');
+      if (v === '1') localStorage.setItem('noana', '1');
+      else if (v === '0') localStorage.removeItem('noana');
+      if (localStorage.getItem('noana') === '1') return;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = document.getElementsByTagName('script')[0];
+      var j = document.createElement('script');
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-5CDHCBXQ';
+      f.parentNode.insertBefore(j, f);
+    } catch (e) {}
+  })();
+</script>
+<!-- analytics:end -->
+<style>
+  :root {
+    --bg:#f8fafd; --surface:#fff; --surface-warm:#e8f0fe; --fg:#202124; --fg-2:#3c4043;
+    --muted:#5f6368; --accent:#1a73e8; --border:#dadce0; --success:#188038;
+    --font-body: Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    --font-display: "Google Sans", Roboto, "Hiragino Kaku Gothic ProN", sans-serif;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font-family:var(--font-body);
+    line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:960px; margin:0 auto; padding:56px 20px 72px; }
+  header { text-align:center; margin-bottom:40px; }
+  .brand { display:inline-flex; align-items:center; gap:10px; font-family:var(--font-display);
+    font-weight:700; color:var(--accent); font-size:20px; }
+  .brand img { width:28px; height:28px; border-radius:8px; }
+  h1 { font-family:var(--font-display); font-size:clamp(26px,4vw,38px); line-height:1.25;
+    margin:18px 0 10px; letter-spacing:-.01em; }
+  .lead { color:var(--muted); font-size:16px; margin:0 auto; max-width:640px; }
+  .grid { display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:20px;
+    padding:26px; display:flex; flex-direction:column; }
+  .app-head { display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+  .app-head img { width:56px; height:56px; border-radius:14px; flex:0 0 auto; }
+  .app-name { font-family:var(--font-display); font-weight:700; font-size:21px; line-height:1.2; }
+  .app-tag { color:var(--muted); font-size:13px; }
+  .card p { margin:0 0 16px; color:var(--fg-2); font-size:15px; }
+  ul { margin:0 0 20px; padding-left:20px; color:var(--fg-2); font-size:14px; }
+  li { margin-bottom:6px; }
+  .cta { margin-top:auto; display:flex; gap:10px; flex-wrap:wrap; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    background:var(--accent); color:#fff; text-decoration:none; font-weight:600; font-size:15px;
+    padding:12px 18px; border-radius:12px; }
+  .btn:hover { background:#1765cc; }
+  .btn.ghost { background:#fff; color:var(--accent); border:1px solid var(--border); }
+  .note { margin-top:40px; padding:20px 22px; background:var(--surface-warm); border-radius:16px;
+    font-size:14px; color:var(--fg-2); }
+  footer { margin-top:44px; text-align:center; color:var(--muted); font-size:13px; }
+  footer a { color:var(--muted); margin:0 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="brand"><img src="app-icon.png" alt="" />ActiveJ</span>
+    <h1>お家のWi-Fiで完結する、2つのAndroidアプリ</h1>
+    <p class="lead">広告なし・クラウドの月額なし。書類はスキャンして整理、写真は家の保存先へ自動でバックアップ。</p>
+  </header>
+
+  <div class="grid">
+    <section class="card">
+      <div class="app-head">
+        <img src="docscan-icon.svg" alt="" />
+        <div>
+          <div class="app-name">DocScan AI</div>
+          <div class="app-tag">書類スキャン・AI整理</div>
+        </div>
+      </div>
+      <p>紙の書類を撮るだけでPDFに。AIがファイル名と保存先を提案し、後から探せます。</p>
+      <ul>
+        <li>枠を自動認識・OCR</li>
+        <li>AIが命名・フォルダ分類</li>
+        <li>スキャンは端末内に保存</li>
+      </ul>
+      <div class="cta">
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.docscanai&utm_source=portal&utm_medium=profile&utm_campaign=docscanai">Google Play で入手</a>
+        <a class="btn ghost" href="https://scandocai711.github.io/">紹介サイト</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="app-head">
+        <img src="app-icon.png" alt="" />
+        <div>
+          <div class="app-name">ShareOrBackup</div>
+          <div class="app-tag">Wi-Fi共有・自動バックアップ</div>
+        </div>
+      </div>
+      <p>同じWi-Fiのスマホ・PC・NASと直接やりとり。帰宅してつながるだけで自動バックアップします。</p>
+      <ul>
+        <li>フォルダ同期（双方向）</li>
+        <li>SMB / SFTP / WebDAV / S3対応</li>
+        <li>削除は7日間 .trash から復元</li>
+      </ul>
+      <div class="cta">
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.sharebackup&utm_source=portal&utm_medium=profile&utm_campaign=sharebackup">Google Play で入手</a>
+        <a class="btn ghost" href="https://sharebackup6.github.io/">紹介サイト</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="note">
+    <strong>組み合わせて便利：</strong>DocScan AI の保存先フォルダを ShareOrBackup の同期対象にすると、
+    Wi-Fi接続時にスキャンした書類まで自動でバックアップされます。
+  </div>
+
+  <footer>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="sitemap.html">サイトマップ</a>
+    <div style="margin-top:10px">© 2026 ActiveJ</div>
+  </footer>
+</div>
+</body>
+</html>
