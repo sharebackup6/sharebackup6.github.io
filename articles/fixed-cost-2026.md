@@ -48,7 +48,7 @@ published: false
 
 もちろん、電気代や故障のリスクは残ります。それでも「毎月引かれる」状態からは抜けられます。
 
-![sharebackup-cloud-cost.chart.ja](/images/fixed-cost-2026/sharebackup-cloud-cost.chart.ja.png)
+![sharebackup-fixed-cost.chart.ja](/images/fixed-cost-2026/sharebackup-fixed-cost.chart.ja.png)
 
 
 ## 全部やめなくていい
