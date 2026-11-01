@@ -3,7 +3,7 @@ title: "毎月の固定費を洗い出したら、クラウドだけで年1.7万
 emoji: "🧾"
 type: "idea"
 topics: ["android", "storage", "cost", "backup", "savings"]
-published: false
+published: true
 ---
 固定費の見直しというと、通信費や保険から手を付ける人が多いです。ただ、実際に書き出してみると「写真の保存」に毎月お金を払っていることに気づきます。ここでは、固定費の洗い出しから、写真の保存費を減らすところまでを順番に書きます。
 
