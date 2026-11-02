@@ -3,7 +3,7 @@ title: "スマホの写真、どこに保存する？ クラウド・外付けSS
 emoji: "💾"
 type: "idea"
 topics: ["android", "storage", "backup", "cost", "nas"]
-published: false
+published: true
 ---
 写真の保存先を決めるとき、いちばん迷うのは「結局どれが安いのか」だと思います。料金はサービスごとに書き方が違い、容量もバラバラで比べにくい。ここでは2TB・10年という同じ条件に揃えて、3つの選択肢を並べます。
 
